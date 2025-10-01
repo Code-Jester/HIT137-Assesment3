@@ -4,7 +4,7 @@ from .input_section import InputSection
 from .output_section import OutputSection
 from .info_section import InfoSection
 
-# Keep your existing model imports if present; fall back gracefully if not available
+
 try:
     from models.text_model import TextModel
     from models.image_model import ImageModel
@@ -27,7 +27,7 @@ class App(tk.Tk):
         self.style.configure("TButton", padding=(10, 6))
         self.style.configure("TCombobox", padding=4)
 
-        # Models (kept as attributes so your existing logic still works)
+        # Models (kept as attributes so existing logic still works)
         self.text_model = None
         self.image_model = None
 
@@ -35,7 +35,7 @@ class App(tk.Tk):
         self._create_layout()
         self._create_statusbar()
 
-    # --- Menus ---------------------------------------------------------------
+    # Menu
     def _create_menu(self):
         menubar = Menu(self)
         self.config(menu=menubar)
@@ -53,14 +53,14 @@ class App(tk.Tk):
             "About", "Group 55 Assesment 3, TKinter Ai GUI project 2025"))
         menubar.add_cascade(label="Help", menu=help_menu)
 
-    # --- Top bar & main panes ------------------------------------------------
+    # Top Bar
     def _create_layout(self):
         container = ttk.Frame(self, padding=(10, 10, 10, 6))
         container.grid(row=0, column=0, sticky="nsew")
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
 
-        # Top controls (model selection)
+        # Top Controls
         topbar = ttk.Frame(container)
         topbar.grid(row=0, column=0, sticky="ew", pady=(0, 8))
         topbar.columnconfigure(2, weight=1)
@@ -102,14 +102,14 @@ class App(tk.Tk):
         notes = ttk.Label(container, textvariable=self.notes_var, foreground="#666")
         notes.grid(row=3, column=0, sticky="w", pady=(6, 0))
 
-    # --- Status bar ----------------------------------------------------------
+    # Status
     def _create_statusbar(self):
         self.status = tk.StringVar(value="Ready")
         bar = ttk.Label(self, textvariable=self.status, anchor="w")
         bar.grid(row=1, column=0, sticky="ew")
         self.grid_rowconfigure(1, weight=0)
 
-    # --- Actions -------------------------------------------------------------
+    # Actions
     def load_models(self):
         try:
             self.status.set("Loading models...")
