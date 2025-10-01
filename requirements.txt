@@ -1,0 +1,16 @@
+pip install
+
+# GUI
+tkinter
+pillow
+
+# Hugging Face
+transformers
+torch
+huggingface-hub
+datasets
+
+# Utilities
+numpy
+pandas
+scikit-learn
