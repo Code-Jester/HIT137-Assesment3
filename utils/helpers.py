@@ -1,6 +1,7 @@
 from tkinter import messagebox
 import traceback
 
+#for safe checking
 def safe_run(func):
     try:
         func()
