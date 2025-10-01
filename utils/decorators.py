@@ -1,7 +1,7 @@
 import time
 import functools
 
-# Simple logging decorator
+#simple decor for logging in
 def logged(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
@@ -11,7 +11,7 @@ def logged(func):
         return res
     return wrapper
 
-# timing decorator
+#timer decoration
 def timed(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
@@ -22,7 +22,7 @@ def timed(func):
         return res
     return wrapper
 
-# simple caching decorator
+#decoration caching
 def cached(func):
     cache = {}
     @functools.wraps(func)
@@ -36,10 +36,9 @@ def cached(func):
         return res
     return wrapper
 
-# combine decorators as a convenience
+# combining the decorators
 def timed_logged_cached(func):
     return logged(timed(cached(func)))
 
-# keep aliases for readability used in GUI
 def log_and_time(func):
     return logged(timed(func))
